@@ -1,8 +1,12 @@
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRickAndMortyApiCharacterStore } from '../stores/RickAndMortyApiCharacter.js'
+import CharacterCard from '../components/Charactercard.vue'
+import CharacterModal from '../components/CharacterModal.vue'
 
 const charactersStore = useRickAndMortyApiCharacterStore()
+const showModal = ref(false)
+const selectedCharacter = ref(null)
 
 onMounted(() => {
     charactersStore.fetchCharacters()
@@ -16,9 +20,11 @@ const previousPage = () => {
     charactersStore.fetchCharacters(charactersStore.currentPage - 1)
 }
 
-const episodes = (character) => {
-    return character.episode.map(url => url.split('/').pop())
+const openModal = (character) => {
+    selectedCharacter.value = character
+    showModal.value = true
 }
+
 </script>
 
 <template>
@@ -30,15 +36,11 @@ const episodes = (character) => {
         <main>
             <ul class="grid-container">
                 <li v-for="character in charactersStore.characters" :key="character.id" class="character">
-                        <img :src="character.image" alt="character.name"></img>
-                        <h3>{{ character.name }}</h3>
-                        <p>{{ character.status }}</p>
-                        <p>{{ character.species }}</p>
-                        <p>{{ character.gender }}</p>
-                        <p>{{ character.origin.name }}</p>
-                        <p>{{ character.location.name }}</p>
+                    <CharacterCard :character="character" @click="openModal(character)" @select="selectedCharacter = $event"/>
                 </li>
             </ul>
+            <CharacterModal v-model="showModal" :character="selectedCharacter" />
+
             <div class="pagination">
                 <button @click="previousPage">Anterior</button>
                 <span>{{ charactersStore.currentPage }} de {{ charactersStore.totalPages }}</span>
@@ -51,13 +53,13 @@ const episodes = (character) => {
 </template>
 
 <style scoped>
-
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
 }
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
