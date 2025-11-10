@@ -2,11 +2,13 @@
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 
-
 </script>
 <template>
     <nav class="nav-header">
-        <h1 class="nav-title">Rick and Morty</h1>
+        <div class="logo">
+        <img src="../assets/logo.ico" alt="logo">
+        <h1 class="nav-title">Rick and Morty Universe</h1>
+        </div>
         <ul class="nav-links">
             <li>
                 <RouterLink to="/">Início</RouterLink>
@@ -22,6 +24,18 @@ import { RouterLink } from 'vue-router';
 </template>
 
 <style>
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    width: 50px;
+}
+
 .nav-links li a.router-link-exact-active {
     color: #35e35e;
     font-weight: bold;
@@ -32,6 +46,7 @@ import { RouterLink } from 'vue-router';
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    height: auto;
     padding: 1rem 2rem;
     background-color: #282c34;
     color: white;

@@ -2,20 +2,11 @@
   <section class="home-container">
     <h2>Catálago de Rick and Morty</h2>
     <p>Explore o enorme universo desta série</p>
-    <h3>Descubra tudo sobre qualuqer personagem e favorite sues personagens favotiros!</h3>
+    <h3>Descubra tudo sobre qualquer personagem e favorite sues personagens favotiros!</h3>
   </section>
 </template>
 
 <style>
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-  height: 100;
-  width: 100%;
-}
-
 .home-container {
   padding: 2rem;
   text-align: center;

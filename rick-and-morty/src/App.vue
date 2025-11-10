@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import NavHeader from '@/components/NavHeader.vue';
 </script>
 
@@ -10,4 +10,3 @@ import NavHeader from '@/components/NavHeader.vue';
   <RouterView />
 </template>
 
-<style></style>
