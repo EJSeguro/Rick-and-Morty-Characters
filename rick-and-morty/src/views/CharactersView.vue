@@ -67,30 +67,8 @@ main {
     padding: 2rem;
 }
 
-.character {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 1rem;
-    transition: transform 0.2s ease;
+li {    
     list-style: none;
-    height: auto;
-}
-
-.character h3 {
-    color: var(--color-verde);
-    font-weight: bolder;
-}
-
-.character:hover {
-    transform: scale(1.03);
-}
-
-.character img {
-    width: 100%;
-    border-radius: 6px;
-    margin-bottom: 0.5rem;
 }
 
 .pagination {

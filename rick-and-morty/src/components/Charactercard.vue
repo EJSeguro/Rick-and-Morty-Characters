@@ -1,12 +1,21 @@
 <script setup>
+import { useFavoritesCharactersStore } from '@/stores/FavoritesCharacters.js'
+
+
+const favoritesStore = useFavoritesCharactersStore()
+
 const props = defineProps({
-  character: Object
+    character: Object
 })
 
 const emit = defineEmits(['click'])
 
+const toggle = () => {
+    favoritesStore.toggleFavorite(props.character)
+}
+
 const handleClick = () => {
-  emit('click', props.character)
+    emit('click', props.character)
 }
 
 </script>
@@ -19,13 +28,25 @@ const handleClick = () => {
             <p>{{ props.character.status }}</p>
             <p>{{ props.character.species }}</p>
             <p>{{ props.character.gender }}</p>
+            <div class="buttons">
+            <button @click="toggle">
+                {{ favoritesStore.isFavorite(character.id) ? '💛 Favorito' : '🤍 Favoritar' }}
+            </button>
             <button @click="handleClick">Ver mais informações</button>
+            </div>
         </div>
     </div>
 
 </template>
 
-<style scoped>
+<style>
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
 .character-card {
     display: flex;
     flex-direction: column;
@@ -35,6 +56,8 @@ const handleClick = () => {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
+    max-width: 300px;
+
 }
 
 .character-card img {
@@ -70,6 +93,8 @@ button {
 }
 
 button:hover {
-    background-color: var(--color-verde-escuro);
+    transition: 1s;
+    background: #35E35E;
+    background: linear-gradient(90deg,rgba(53, 227, 94, 1) 0%, rgba(87, 199, 133, 1) 26%, rgba(237, 221, 83, 1) 100%);
 }
 </style>

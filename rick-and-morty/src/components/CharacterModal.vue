@@ -12,10 +12,6 @@ const close = () => {
     emit('update:modelValue', false)
 }
 
-const episodes = (character) => {
-    return character.episode.map(url => url.split('/').pop())
-}
-
 watch(() => props.modelValue, (isOpen) => {
     document.body.style.overflow = isOpen ? 'hidden' : ''
 })

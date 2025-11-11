@@ -2,7 +2,7 @@
   <section class="home-container">
     <h2>Catálago de Rick and Morty</h2>
     <p>Explore o enorme universo desta série</p>
-    <h3>Descubra tudo sobre qualquer personagem e favorite sues personagens favotiros!</h3>
+    <h3>Descubra tudo sobre qualquer personagem e favorite seus personagens favotiros!</h3>
   </section>
 </template>
 
