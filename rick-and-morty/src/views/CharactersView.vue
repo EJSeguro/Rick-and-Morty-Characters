@@ -36,7 +36,7 @@ const openModal = (character) => {
         <main>
             <ul class="grid-container">
                 <li v-for="character in charactersStore.characters" :key="character.id" class="character">
-                    <CharacterCard :character="character" @click="openModal(character)" @select="selectedCharacter = $event"/>
+                    <CharacterCard :character="character" @click="openModal(character)" />
                 </li>
             </ul>
             <CharacterModal v-model="showModal" :character="selectedCharacter" />
@@ -67,7 +67,7 @@ main {
     padding: 2rem;
 }
 
-li {    
+li {
     list-style: none;
 }
 

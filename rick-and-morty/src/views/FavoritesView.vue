@@ -27,7 +27,7 @@ onMounted(() => {
 
     <ul class="grid-container">
       <li v-for="character in favoritesStore.favorites" :key="character.id" class="character">
-        <CharacterCard :character="character" @click="openModal(character)" @select="selectedCharacter = $event" />
+        <CharacterCard :character="character" @click="openModal(character)" />
       </li>
     </ul>
     <CharacterModal v-model="showModal" :character="selectedCharacter" />
